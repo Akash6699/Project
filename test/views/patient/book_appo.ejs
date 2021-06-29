@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <title>E-Health Support </title>
+  <!-- base:css -->
+  <link rel="stylesheet" href="../vendors/feather/feather.css">
+  <link rel="stylesheet" href="../vendors/base/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <link rel="stylesheet" href="../vendors/jquery-bar-rating/fontawesome-stars-o.css">
+  <link rel="stylesheet" href="../vendors/jquery-bar-rating/fontawesome-stars.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="../images/favicon.png" />
+</head>
+
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo" href="/">E-Health Support</a>
+        <a class="navbar-brand brand-logo-mini" href="/">E-H</a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="icon-menu"></span>
+        </button>
+        <ul class="navbar-nav mr-lg-2">
+          <li class="nav-item nav-search d-none d-lg-block">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="search">
+                  <i class="icon-search"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control" placeholder="Search.." aria-label="search"
+                aria-describedby="search">
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+
+          <li class="nav-item dropdown d-flex mr-4 ">
+            <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center"
+              id="notificationDropdown" href="#" data-toggle="dropdown">
+              <i class="icon-head"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+              aria-labelledby="notificationDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Settings</p>
+              <a class="dropdown-item preview-item">
+                <i class="icon-head"></i> Profile
+              </a>
+              <a href="/logout" class="dropdown-item preview-item">
+                <i class="icon-inbox"></i> Logout
+              </a>
+            </div>
+          </li>
+
+
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+          data-toggle="offcanvas">
+          <span class="icon-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div class="user-profile">
+
+          <div class="user-name">
+            User Name
+          </div>
+          <div class="user-designation">
+            Patient
+          </div>
+        </div>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/patient/dashboard">
+              <i class="icon-box menu-icon"></i>
+              <span class="menu-title">Profile</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/patient/book_appo">
+              <i class="icon-thermometer menu-icon"></i>
+              <span class="menu-title">Book Appointment</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/patient/appointment">
+              <i class="icon-pie-graph menu-icon"></i>
+              <span class="menu-title">Appointments</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/patient/lock_screen">
+              <i class="icon-lock menu-icon"></i>
+              <span class="menu-title">Lockscreen</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm-12 mb-4 mb-xl-3">
+              <h4 class="font-weight-bold text-dark">Book Appointment</h4>
+            </div>
+
+
+
+            <div class="col-xl-6 grid-margin grid-margin ">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Last Appointment Details</h4>
+
+                  <div class="table-responsive mt-3">
+                    <table class="table table-header-bg">
+                      <thead>
+                        <tr>
+                          <th>
+                            Date
+                          </th>
+                          <td>
+                            <% if (appointments.length>0) {  %>
+                              <%= appointments[all_count-1].date %>
+                            <% } else { %>
+                              <li> No Record Found </li>
+                              <% } %>
+                            
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>
+                            Time
+                          </th>
+                          <td>
+                            <% if (appointments.length>0) {  %>
+                              <%= appointments[all_count-1].time %>
+                            <% } else { %>
+                              <li> No Record Found </li>
+                              <% } %>
+                            
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>
+                            Doctor
+                          </th>
+                          <td>
+                            <% if (appointments.length>0) {  %>
+                              <%= appointments[all_count-1].doctor %>
+                            <% } else { %>
+                              <li> No Record Found </li>
+                              <% } %>
+                            
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>
+                            Description
+                          </th>
+                          <td>
+                            <% if (appointments.length>0) {  %>
+                              <%= appointments[all_count-1].description %>
+                            <% } else { %>
+                              <li> No Record Found </li>
+                              <% } %>
+                            
+                          </td>
+                        </tr>
+
+
+                      </thead>
+
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6 grid-margin grid-margin ">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Next Appointment</h4>
+
+                  <div class="table-responsive mt-3">
+                    <table class="table table-header-bg">
+                      <thead>
+                        <tr>
+                          <th>
+                            Date
+                          </th>
+                          <td>
+                            12/12/2020
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>
+                            Doctor
+                          </th>
+                          <td>
+                            John
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>
+                            Book Now
+                          </th>
+                          <td>
+                            <button>Book Appointment</button>
+                          </td>
+                        </tr>
+
+                      </thead>
+
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <hr>
+          <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Book Appointment on Medical Information</h4>
+                <form class="forms-sample" method="POST" action="/patient/book_appo">
+                  <div class="row">
+                    <div class="form-group col-xl-6">
+                      <label for="exampleInputName1">Date</label>
+                      <input type="date" class="form-control" id="date" placeholder="Name" name="date" required>
+                    </div>
+                    <div class="form-group col-xl-6">
+                      <label for="exampleInputName1">Time</label>
+                      <input type="time" class="form-control" id="exampleInputName1" placeholder="time" name="time"  required>
+                    </div>
+
+                    <div class="form-group col-xl-6">
+                      <label for="exampleSelectGender">Select Specilist</label>
+                      <select class="form-control" id="specilist" name="specilist" onchange="getDoctor(this.value);"
+                        required>
+                        <option value="">Select Specilist</option>
+                        <option value="Surgeon">Surgeon</option>
+                        <option value="Cardiologist">Cardiologist</option>
+                        <option value="Dermatologist">Dermatologist</option>
+                        <option value="Gynecologist">Gynecologist</option>
+                        <option value="Ophthalmologist">Ophthalmologist</option>
+                        <option value="Dr.Akash Sajjan">Akash Sajjna</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-xl-6" id="doctor">
+                      <label for="exampleSelectGender">Select Doctor</label>
+                      <select class="form-control" required>
+                        <option></option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-xl-6">
+                      <label for="exampleSelectGender">Health Insurance</label>
+                      <select class="form-control" id="insurance" name="insurance" onchange="changeStatus(this.value)" required>
+                        <option value="">Do you have Health Insurance</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-xl-6">
+                      <label for="exampleSelectGender">If yes, Mention Health Insurance ID</label>
+                      <input type="text" class="form-control" name="insurance_id" placeholder="Insurance Id" id="insurance_id" value="No Any Insurances"
+                        disabled="disabled">
+                    </div>
+
+                    <div class="form-group col-xl-6">
+                      <label for="exampleSelectGender">Have you ever attented our facility in past</label>
+                      <select class="form-control" id="facility" onchange="changeStatus1(this.value)" required>
+                        <option value="">Have you attented previous?</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-xl-6">
+                      <label for="exampleSelectGender">If Yes, state on which condition and why?</label>
+                      <input type="text" class="form-control" name="iffacility" id="iffacility" placeholder="mention here" value="No Any Facility Attented"
+                        disabled="disabled">
+                    </div>
+
+                    <div class="form-group col-xl-6">
+                      <label for="exampleSelectGender">Do you have any medication allergies?</label>
+                      <select class="form-control" id="allergies" onchange="changeStatus2(this.value)" required>
+                        <option value="">Have you attented previous?</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="notsure">Not Sure</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-xl-6">
+                      <label for="exampleSelectGender">If Yes, please mention</label>
+                      <input type="text" class="form-control" name="ifallergies" id="ifallergies" placeholder="mention here" value="No Any Allergies "
+                        disabled="disabled">
+                    </div>                
+
+                    <div class="form-group col-xl-6" id="disease">
+                      <label for="exampleSelectGender">Mention appointment for</label>
+                      <select class="form-control" required>
+                        <option></option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-xl-6">
+                      <label for="exampleInputCity1">Please List any Operations done with date</label>
+                      <input class="form-control" name="operations" id="operations" required></input>
+                    </div>
+                    
+
+                    <div class="form-group col-xl-6">
+                      <label for="exampleSelectGender">Excersise</label>
+                      <select class="form-control" name="excersise" id="excersise" required>
+                        <option value="">--Select Option--</option>
+                        <option value="never">Never</option>
+                        <option value="once_a_week">once a Week</option>
+                        <option value="everyday">Everyday</option>
+                        <option value="two_times_day">2 times aday</option>
+                      </select>
+                    </div>
+                    
+                    <div class="form-group col-xl-6">
+                      <label for="exampleSelectGender">Diet Plan</label>
+                      <select class="form-control" name="diet_plan" id="diet_plan" required>
+                        <option value="">--Select Option--</option>
+                        <option value="loose">Loose Weight</option>
+                        <option value="strict">Strict Diet</option>
+                        <option value="nodiet">No Diet Plan</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-xl-6">
+                      <label for="exampleSelectGender">Alcohol Consuption</label>
+                      <select class="form-control" name="alcohol" id="alcohol" required>
+                        <option value="">--Select Option--</option>
+                        <option value="never">I don`t drink</option>
+                        <option value="Everyday">Everyday</option>
+                        <option value="once_a_Week">Once a Week</option>
+                        <option value="twice_a_Week">Twice a Week</option>
+                      </select>
+                    </div>
+                    
+                    <div class="form-group col-xl-6">
+                      <label for="exampleSelectGender">Drink Coffee or Tea</label>
+                      <select class="form-control" name="drink" id="drink" required>
+                        <option value="">--Select Option--</option>
+                        <option value="no">No i dont drink</option>
+                        <option value="once">once a day</option>
+                        <option value="twice">Twice a day</option>
+                        <option value="morethantwice">More than twice</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-xl-6">
+                      <label for="exampleSelectGender">Do you Smoke ?</label>
+                      <select class="form-control" name="smoke" id="smoke" required>
+                        <option value="">--Select Option--</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-xl-6">
+                      <label for="exampleSelectGender">Include other comments regarding your medical history</label>
+                      <input type="text" class="form-control" name="other_medical" id="other_medical" placeholder="mention here" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <footer class="footer">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+
+
+        </div>
+      </footer>
+      <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    async function getDoctor(specilist_doctor) {
+      const values1 = await axios.get("http://localhost:8080/patient/book_appo/" + specilist_doctor);
+      console.log(values1);
+      var values = []
+      
+
+      var specilistlist = ["surgeon", "cardiologist", "dermatologist", "gynecologist", "ophthalmologist"];
+      var surgeon = ["Injuries", "Abdominal Pain", "Cancer", "Hernia", "Gallbladder Inflammation and Gallstones", "Gastrointestinal", "Thyroid Disorders", "Varicose Veins"];
+      var cardiologist = ["High blood pressure", "High cholesterol", "angina", "Heart attacks", "HeartF ailure", "Heart Pain", "Irregular heartbeat"];
+      var dermatologist = ["Skin issues", "Fungal infections", "Pimples Problem", "Hair loss", "Nail Problems", "Skin cancer", "Signs of Aging"];
+      var gynecologist = ["Family Planning", "Pregnancy issue", "Fertility", "Painful Periods", "Sexual Discomfort", "Sexual History", "Urinary Problem", "Low Libido"];
+      var ophthalmologist = ["Routine eye checkup", "Low visiblity", "Excessive tearing", "Eyelid abnormalities", "Misaligned eyes", "Sparkle"]
+
+      for (let i = 0; i < values1.data.length; i++) {
+        values.push(values1.data[i].name);
+      }
+      console.log('Values = '+values);
+      console.log(values1);
+
+      let res = values1.data[0].spacilization;
+      switch (res) {
+        case 'Surgeon':
+          val = surgeon;
+          break;
+        case 'Cardiologist':
+          val = cardiologist;
+          break;
+        case 'Dermatologist':
+          val = dermatologist;
+          break;
+        case 'Gynecologist':
+          val = gynecologist;
+          break;
+        case 'Ophthalmologist':
+          val = ophthalmologist;
+          break;
+      }
+
+      var string = "";
+      for (i = 0; i < values.length; i++) {
+        string = string + "<option value='" + values[i] + "'>" + values[i] + "</option>";
+        
+      }
+      string = "<label for=" + "exampleSelectGender" + ">Select Doctor</label><select class=" + "form-control  " + " name=doctor>" + string + "</select>";
+      document.getElementById('doctor').innerHTML = string;
+
+      var diseasedata = "";
+      for (i = 0; i < val.length; i++) {
+        diseasedata = diseasedata + "<option value='" + val[i] + "'>" + val[i] + "</option>";
+      }
+      diseasedata = "<label for=" + "exampleSelectGender" + ">Choose your concern</label><select name=problem class=" + "form-control  >" +  diseasedata + "</select>";
+      document.getElementById('disease').innerHTML = diseasedata;
+
+    }
+
+  </script>
+
+  <script>
+    function changeStatus(insurance) {
+      var inputid = document.getElementById("insurance_id");
+      inputid.disabled = insurance == 'yes' ? false : true;
+      if (!inputid.disabled) {
+        inputid.focus();
+      }
+    }
+  </script>
+
+  <script>
+    function changeStatus1(facility) {
+      var iffacility = document.getElementById("iffacility");
+      iffacility.disabled = facility == 'yes' ? false : true;
+      if (!iffacility.disabled) {
+        iffacility.focus();
+      }
+    }
+  </script>
+  <script>
+    function changeStatus2(allergies) {
+      var ifallergies = document.getElementById("ifallergies");
+      ifallergies.disabled = allergies == 'yes' ? false : true;
+      if (!ifallergies.disabled) {
+        ifallergies.focus();
+      }
+    }
+  </script>
+
+
+  <script src="../vendors/base/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="../js/off-canvas.js"></script>
+  <script src="../js/hoverable-collapse.js"></script>
+  <script src="../js/template.js"></script>
+  <!-- endinject -->
+  <!-- plugin js for this page -->
+  <script src="../vendors/chart.js/Chart.min.js"></script>
+  <script src="../vendors/jquery-bar-rating/jquery.barrating.min.js"></script>
+  <!-- End plugin js for this page -->
+  <!-- Custom js for this page-->
+  <script src="../js/dashboard.js"></script>
+  <!-- End custom js for this page-->
+</body>
+
+</html>

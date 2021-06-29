@@ -1,0 +1,63 @@
+{
+	"info": {
+		"_postman_id": "fde3a3bc-8014-4ad8-a6d8-cb53da49abe0",
+		"name": "BReciept",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Receipt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"receiptId\": \"65a6955e-5735-491a-8d7d-38815fc0c4e2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{service_url}}/api/get-receipt",
+					"host": [
+						"{{service_url}}"
+					],
+					"path": [
+						"api",
+						"get-receipt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Receipt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"appName\" : \"bYou\",\r\n    \"data\": {\r\n        \"userId\" : \"c2c3e0a2-6a19-4824-a66d-dcbd0da2617b\",\r\n        \"credentialSchemaId\" : \"0ed0bae5-4603-4a64-9457-dee5cf686800\",\r\n        \"timestamp\" : \"1653345530\",\r\n        \"credentialIssuerId\":\"56cead9a-ec80-4a43-acf1-846a37a5a92b\",\r\n        \"credentialPoint\" : {\"name\": \"t1\", \"dob\" : \"25/03/1997\", \"age\" : \"25\"},\r\n        \"expiration\" : \"1653365530\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{service_url}}/api/create-receipt",
+					"host": [
+						"{{service_url}}"
+					],
+					"path": [
+						"api",
+						"create-receipt"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,7 @@
+{
+    "SOMETHING_WENT_WRONG": "Something went wrong",
+    "SUCCESS_CREATE": "{{key}} created successfully",
+    "INVALID_REQUEST": "Invalid Request",
+    "GET_SUCCESS": "{{key}} Info get successfully",
+    "NOT_FOUND": "{{key}} Not Found"
+}

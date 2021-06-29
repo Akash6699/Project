@@ -1,0 +1,566 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags --> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>E-Health Support </title>
+  <!-- base:css -->
+  <link rel="stylesheet" href="../vendors/feather/feather.css">
+  <link rel="stylesheet" href="../vendors/base/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <link rel="stylesheet" href="../vendors/jquery-bar-rating/fontawesome-stars-o.css">
+  <link rel="stylesheet" href="../vendors/jquery-bar-rating/fontawesome-stars.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="../images/favicon.png" />
+</head>
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo" href="/">E-Health Support</a>
+        <a class="navbar-brand brand-logo-mini" href="/">E-H</a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="icon-menu"></span>
+        </button>
+        <ul class="navbar-nav mr-lg-2">
+          <li class="nav-item nav-search d-none d-lg-block">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="search">
+                  <i class="icon-search"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control" placeholder="Search.." aria-label="search" aria-describedby="search">
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+            
+                    <li class="nav-item dropdown d-flex mr-4 ">
+            <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
+              <i class="icon-head"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Settings</p>
+              <a class="dropdown-item preview-item">               
+                  <i class="icon-head"></i> Profile
+              </a>
+              <a href="/logout" class="dropdown-item preview-item">
+                  <i class="icon-inbox"></i> Logout
+              </a>
+            </div>
+          </li>
+          
+        
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="icon-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div class="user-profile">
+         
+          <div class="user-name">
+              User Name
+          </div>
+          <div class="user-designation">
+              Doctor
+          </div>
+        </div>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/doctor/dashboard">
+              <i class="icon-box menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/doctor/patient">
+               <i class="icon-thermometer menu-icon"></i>
+              <span class="menu-title">Patient</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/doctor/appointment">
+              <i class="icon-pie-graph menu-icon"></i>
+              <span class="menu-title">Appointments</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/doctor/lock-screen">
+              <i class="icon-lock menu-icon"></i>
+              <span class="menu-title">Lockscreen</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm-12 mb-4 mb-xl-0">
+              <h4 class="font-weight-bold text-dark">Patient Details</h4>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-xl-12 flex-column d-flex grid-margin stretch-card">
+              <div class="row flex-grow">
+                 <div class="col-xl-2 flex-column d-flex grid-margin stretch-card">
+              <div class="row flex-grow">
+                <div class="col-sm-12 grid-margin">
+                    <div class="card">
+                      <div class="card-body">
+                          <h4 class="card-title" style="text-align: center; " >
+                          <img src="../images/faces/patient/patient.png"></h4>
+                         
+                      </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 grid-margin ">
+                    <div class="card">
+                      <div class="card-body">
+                          <h4 class="card-title">Total Appointment</h4>
+                          <h4 class="text-dark font-weight-bold mb-2">55,543</h4>
+                          
+                      </div>
+                    </div>
+               </div>
+
+
+              </div>
+
+            </div>
+                
+                <div class="col-xl-5 grid-margin grid-margin ">
+              <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Personal Details</h4>
+
+                    <div class="table-responsive mt-3">
+                      <table class="table table-header-bg">
+                        <thead>
+                          <tr>
+                            <th>
+                                Date of joining
+                            </th>
+                            <td>
+                                12/12/2020
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                                Name
+                            </th>
+                            <td>
+                                John cena
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                               Age
+                            </th>
+                            <td>
+                                56
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                                Gender
+                            </th>
+                            <td>
+                                Male
+                            </td>
+                          </tr>
+                          
+                          <tr>
+                            <th>
+                                Father/ Spouse`s Name
+                            </th>
+                            <td>
+                                Pushpender
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                                Address
+                            </th>
+                            <td>
+                                12 gasksd lkas solapur
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                                City
+                            </th>
+                            <td>
+                                Solapur
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                                State
+                            </th>
+                            <td>
+                                MH
+                            </td>
+                          </tr>
+                          
+                        </thead>
+                        
+                      </table>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-5 grid-margin grid-margin ">
+              <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Complete Details</h4>
+
+                    <div class="table-responsive mt-3">
+                      <table class="table table-header-bg">
+                        <thead>
+                        <tr>
+                            <th>
+                                Marital Status
+                            </th>
+                            <td>
+                                Single
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                                Education
+                            </th>
+                            <td>
+                                7th Grade
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                                Occupation
+                            </th>
+                            <td>
+                                Business
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                               Height
+                            </th>
+                            <td>
+                                12.23
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                                Weight
+                            </th>
+                            <td>
+                                100 kg
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                                Adhar No.
+                            </th>
+                            <td>
+                                24564645646
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                                Email
+                            </th>
+                            <td>
+                                dsoadh@gmail.com
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                                Contact
+                            </th>
+                            <td>
+                                123456789
+                            </td>
+                          </tr>
+                          
+                        </thead>
+                        
+                      </table>
+                    </div>
+                </div>
+              </div>
+            </div>
+                
+              </div>
+
+            </div>
+          </div>
+            
+              
+              
+          <div class="row">
+          
+            
+                                
+            <div class="col-xl-6 grid-margin grid-margin ">
+              <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Desease Details</h4>
+
+                    <div class="table-responsive mt-3">
+                      <table class="table table-header-bg">
+                        <thead>
+                        <tr>
+                            <th>
+                                Desease Name
+                            </th>
+                            <td>
+                                Single
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <th>
+                                Deaseas Stage
+                            </th>
+                            <td>
+                                Critical
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                                Description
+                            </th>
+                            <td>
+                                ssafsdfdsdfgfd
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                               Precautions Given
+                            </th>
+                            <td>
+                                dsakhjsd
+                                dasfdsf
+                                dasfds
+                            </td>
+                          </tr>
+                          
+                          
+                        </thead>
+                        
+                      </table>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6 grid-margin grid-margin ">
+              <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Appointment Details</h4>
+
+                    <div class="table-responsive mt-3">
+                      <table class="table table-header-bg">
+                        <thead>
+                        <tr>
+                            <th>
+                                Last Appointment
+                            </th>
+                            <td>
+                                12/12/2020
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <th>
+                                Next Appointment
+                            </th>
+                            <td>
+                                12/13/2021
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                                Download Report
+                            </th>
+                            <td>
+                                <a href="#">Download</a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                                Precations Recipt
+                            </th>
+                            <td>
+                                <a href="#">Download</a>
+                            </td>
+                          </tr>
+                          
+                          
+                        </thead>
+                        
+                      </table>
+                    </div>
+                </div>
+              </div>
+            </div>
+          
+
+            <div class="col-xl-12 grid-margin grid-margin  stretch-card ">
+              <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Appointments List</h4>
+
+                    <div class="table-responsive mt-3">
+                      <table class="table table-header-bg">
+                        <thead>
+                          <tr>
+                            <th width="10">
+                                Sr.no
+                            </th>
+                            <th  width="150">
+                                Date & Time
+                            </th>
+                            <th width="250">
+                               Appointment Date & Time
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                            <th>
+                                Precautions Given
+                            </th>
+                            <th width="50">
+                                View
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              1 
+                            </td>
+                            <td>
+                              12/12/1212 12:12pm
+                            </td>
+                            <td>
+                              12/12/1212 12:12pm
+                            </td>
+                            <td>
+                              Piles
+                            </td>
+                            <td>
+                              Piddfdfgdfles
+                            </td>
+                            <td>
+                               <label class="badge badge-info">Not done yet</label>
+                            </td>
+                            
+                          </tr>
+                         <tr>
+                            <td>
+                              1 
+                            </td>
+                            <td>
+                              12/12/1212 12:12pm
+                            </td>
+                            <td>
+                              12/12/1212 12:12pm
+                            </td>
+                            <td>
+                              Piles
+                            </td>
+                            <td>
+                              Piddfdfgdfles
+                            </td>
+                            <td>
+                              <label class="badge badge-success">Completed</label>
+                            </td>
+                            
+                          </tr>
+                         <tr>
+                            <td>
+                              1 
+                            </td>
+                            <td>
+                              12/12/1212 12:12pm
+                            </td>
+                            <td>
+                              12/12/1212 12:12pm
+                            </td>
+                            <td>
+                              Piles
+                            </td>
+                            <td>
+                              Piddfdfgdfles
+                            </td>
+                            <td>
+                              <label class="badge badge-danger">Cancelled</label>
+                            </td>
+                            
+                          </tr>
+                          
+                          
+                        </tbody>
+                      </table>
+                    </div>
+                </div>
+              </div>
+            </div>
+            
+
+            
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+        
+            
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- base:js -->
+  <script src="../vendors/base/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="../js/off-canvas.js"></script>
+  <script src="../js/hoverable-collapse.js"></script>
+  <script src="../js/template.js"></script>
+  <!-- endinject -->
+  <!-- plugin js for this page -->
+  <script src="../vendors/chart.js/Chart.min.js"></script>
+  <script src="../vendors/jquery-bar-rating/jquery.barrating.min.js"></script>
+  <!-- End plugin js for this page -->
+  <!-- Custom js for this page-->
+  <script src="../js/dashboard.js"></script>
+  <!-- End custom js for this page-->
+</body>
+
+</html>
+

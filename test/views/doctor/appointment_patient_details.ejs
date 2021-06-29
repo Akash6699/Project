@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>E-Health Support </title>
+  <!-- base:css -->
+  <link rel="stylesheet" href="../vendors/feather/feather.css">
+  <link rel="stylesheet" href="../vendors/base/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <link rel="stylesheet" href="../vendors/jquery-bar-rating/fontawesome-stars-o.css">
+  <link rel="stylesheet" href="../vendors/jquery-bar-rating/fontawesome-stars.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="../images/favicon.png" />
+</head>
+
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo" href="/">E-Health Support</a>
+        <a class="navbar-brand brand-logo-mini" href="/">E-H</a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="icon-menu"></span>
+        </button>
+        <ul class="navbar-nav mr-lg-2">
+          <li class="nav-item nav-search d-none d-lg-block">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="search">
+                  <i class="icon-search"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control" placeholder="Search.." aria-label="search"
+                aria-describedby="search">
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+
+          <li class="nav-item dropdown d-flex mr-4 ">
+            <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center"
+              id="notificationDropdown" href="#" data-toggle="dropdown">
+              <i class="icon-head"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+              aria-labelledby="notificationDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Settings</p>
+              <a class="dropdown-item preview-item">
+                <i class="icon-head"></i> Profile
+              </a>
+              <a href="/" class="dropdown-item preview-item">
+                <i class="icon-inbox"></i> Logout
+              </a>
+            </div>
+          </li>
+
+
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+          data-toggle="offcanvas">
+          <span class="icon-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div class="user-profile">
+
+          <div class="user-name">
+            Doctor Name
+          </div>
+          <div class="user-designation">
+            Doctor
+          </div>
+        </div>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/doctor/dashboard">
+              <i class="icon-box menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/doctor/patient">
+              <i class="icon-thermometer menu-icon"></i>
+              <span class="menu-title">Patient</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/doctor/appointment">
+              <i class="icon-pie-graph menu-icon"></i>
+              <span class="menu-title">Appointments</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/doctor/lock_screen">
+              <i class="icon-lock menu-icon"></i>
+              <span class="menu-title">Lockscreen</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm-12 mb-4 mb-xl-0">
+              <h4 class="font-weight-bold text-dark">Patient Details</h4>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-xl-12 flex-column d-flex grid-margin stretch-card">
+              <div class="row flex-grow">
+                <div class="col-xl-2 flex-column d-flex grid-margin stretch-card">
+                  <div class="row flex-grow">
+                    <div class="col-sm-12 grid-margin">
+                      <div class="card">
+                        <div class="card-body">
+                          <h4 class="card-title" style="text-align: center; ">
+                            <img src="../images/faces/patient/patient.png">
+                          </h4>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-12 grid-margin ">
+                      <div class="card">
+                        <div class="card-body">
+                          <h4 class="card-title">Total Appointment</h4>
+                          <h4 class="text-dark font-weight-bold mb-2">55,543</h4>
+
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="col-xl-5 grid-margin grid-margin ">
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title">Personal Details</h4>
+                      <div class="table-responsive mt-3">
+                        <table class="table table-header-bg">
+                          <thead>
+                            <tr>
+                              <th> Patient Name</th>
+                              <td>
+                                <%= patient_info.name %>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th> Age</th>
+                              <td>
+                                <%= patient_info.age %>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th> Gender</th>
+                              <td>
+                                <%= patient_info.gender %>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th>Father/ Spouse`s Name </th>
+                              <td>
+                                <%= patient_info.father %>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th> Address </th>
+                              <td>
+                                <%= patient_info.address %>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th> City</th>
+                              <td>
+                                <%= patient_info.city %>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th> State</th>
+                              <td>
+                                <%= patient_info.state %>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th> Nationality</th>
+                              <td>
+                                <%= patient_info.nationality %>
+                              </td>
+                            </tr>
+                          </thead>
+
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-5 grid-margin grid-margin ">
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title">Complete Details</h4>
+
+                      <div class="table-responsive mt-3">
+                        <table class="table table-header-bg">
+                          <thead>
+                            <tr>
+                              <th> Marital Status</th>
+                              <td>
+                                <%= patient_info.mstatus %>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th> Education</th>
+                              <td>
+                                <%= patient_info.education %>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th> Occupation</th>
+                              <td>
+                                <%= patient_info.occupation %>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th> Height</th>
+                              <td>
+                                <%= patient_info.height %>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th> Weight</th>
+                              <td>
+                                <%= patient_info.weight %>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th> Adhar No. </th>
+                              <td>
+                                <%= patient_info.adharno %>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th> Email</th>
+                              <td>
+                                <%= patient_info.email %>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th> Contact Number</th>
+                              <td>
+                                <%= patient_info.contact %>
+                              </td>
+                            </tr>
+                          </thead>
+
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xl-6 grid-margin grid-margin ">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Desease Details</h4>
+
+                  <div class="table-responsive mt-3">
+                    <table class="table table-header-bg">
+                      <thead>
+                        <tr>
+                          <th>
+                            Patient Facing Issue
+                          </th>
+                          <td>
+                            <%= foundappointment.problem %>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <th>
+                            Insurance ID
+                          </th>
+                          <td>
+                            <%= foundappointment.insurance_id %>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>
+                            Patient Having Allergies
+                          </th>
+                          <td>
+                            <%= foundappointment.ifallergies %>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>
+                            Patient's Past surgery
+                          </th>
+                          <td>
+                            <%= foundappointment.operations %>
+                          </td>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6 grid-margin grid-margin ">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Appointment Details</h4>
+
+                  <div class="table-responsive mt-3">
+                    <table class="table table-header-bg">
+                      <thead>
+                        <tr>
+                          <th>
+                            Last Appointment
+                          </th>
+                          <td>
+                            12/12/2020
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <th>
+                            Next Appointment
+                          </th>
+                          <td>
+                            12/13/2021
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>
+                            Download Report
+                          </th>
+                          <td>
+                            <a href="#">Download</a> | <a href="#">Open</a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>
+                            Medicine Recipt
+                          </th>
+                          <td>
+                            <a href="#">Download</a> | <a href="#">Open</a>
+                          </td>
+                        </tr>
+
+
+                      </thead>
+
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xl-6 grid-margin grid-margin ">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Upload Report</h4>
+                  <form action="/doctor/upload_document/<%= foundappointment._id%>" method="post"
+                    enctype="multipart/form-data">
+                    <div class="table-responsive mt-3">
+                      <table class="table table-header-bg">
+                        <thead>
+                          <!-- <tr><th> Report Hash </th><td> <input type="text" name="report_hash" id="report_hash"> </td></tr>  -->
+                          <tr>
+                            <th> Upload Patient's Report </th>
+                            <td><input type="file" name="avatar" id="file"><input type="text" name="hash"
+                                value="<%= foundappointment.report_hash %>" disabled="disabled"></td>
+                          </tr>
+                          <tr>
+                            <th>Upload File</th>
+                            <td><button type="submit" class="btn btn-warning">Upload file</button></td>
+                          </tr>
+                          <!-- <a href="/doctor/upload_document/<%= patient_info.id %>"></a> -->
+                          <!-- <tr><th>Next Appointment</th><td><input type="date" name=""></td></tr> -->
+                        </thead>
+                      </table>
+                    </div>
+                  </form>
+                  <form action="/doctor/upload_document1/<%= foundappointment._id%>" method="post"
+                    enctype="multipart/form-data">
+                    <div class="table-responsive mt-3">
+                      <table class="table table-header-bg">
+                        <thead>
+                          <!-- <tr><th> Report Hash </th><td> <input type="text" name="report_hash" id="report_hash"> </td></tr>  -->
+                          <tr>
+                            <th> Upload Medicine Recipt </th>
+                            <td><input type="file" name="avatar" id="file"><input type="text" name="hash"
+                                value="<%= foundappointment.recipt_hash %>" disabled="disabled"></td>
+                          </tr>
+                          <tr>
+                            <th>Upload File</th>
+                            <td><button type="submit" class="btn btn-warning">Upload file</button></td>
+                          </tr>
+                          <!-- <a href="/doctor/upload_document/<%= patient_info.id %>"></a> -->
+                          <!-- <tr><th>Next Appointment</th><td><input type="date" name=""></td></tr> -->
+                        </thead>
+                      </table>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6 grid-margin grid-margin ">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Add Desease Details</h4>
+                  <form method="POST" action="/doctor/complet_appointment/<%= patient_info._id %>/<%= foundappointment._id%>" >
+                    <div class="table-responsive mt-3">
+                      <table class="table table-header-bg">
+                        <thead>
+                          <tr>
+                            <th>
+                              Desease Name
+                            </th>
+                            <td>
+                              <input class="destext" type="text" name="desease_name" placeholder="Desease Name" required>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                              Desease Stage
+                            </th>
+                            <td>
+                              <input class="destext" type="text" name="desease_stage" placeholder="Desease Stage" required>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                              Description
+                            </th>
+                            <td>
+                              <textarea class="destext" placeholder="Description" name="description" required></textarea>
+
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                              Medicine Given
+                            </th>
+                            <td>
+                              <input class="destext" type="text" name="medicine_given" placeholder="Medicine Given" required>
+                            </td>
+                          </tr>
+                        </thead>
+                      </table>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="text-align: center;">
+            <button class="btn btn-success">Complete</button>
+          </div>
+          </form>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- base:js -->
+  <script src="../vendors/base/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="../js/off-canvas.js"></script>
+  <script src="../js/hoverable-collapse.js"></script>
+  <script src="../js/template.js"></script>
+  <!-- endinject -->
+  <!-- plugin js for this page -->
+  <script src="../vendors/chart.js/Chart.min.js"></script>
+  <script src="../vendors/jquery-bar-rating/jquery.barrating.min.js"></script>
+  <!-- End plugin js for this page -->
+  <!-- Custom js for this page-->
+  <script src="../js/dashboard.js"></script>
+  <!-- End custom js for this page-->
+</body>
+
+</html>

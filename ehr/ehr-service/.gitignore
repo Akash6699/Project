@@ -1,0 +1,15 @@
+# Package dependencies
+node_modules
+jspm_packages
+package-lock.json
+
+# Environment variables
+.env*
+
+# Editors configs
+.idea
+.vscode
+.DS_Store
+
+#Other dependencies
+wallet

@@ -1,0 +1,441 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags --> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>E-Health Support </title>
+  <!-- base:css -->
+  <link rel="stylesheet" href="../vendors/feather/feather.css">
+  <link rel="stylesheet" href="../vendors/base/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <link rel="stylesheet" href="../vendors/jquery-bar-rating/fontawesome-stars-o.css">
+  <link rel="stylesheet" href="../vendors/jquery-bar-rating/fontawesome-stars.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="../images/favicon.png" />
+</head>
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo" href="/">E-Health Support</a>
+        <a class="navbar-brand brand-logo-mini" href="/">E-H</a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="icon-menu"></span>
+        </button>
+        <ul class="navbar-nav mr-lg-2">
+          <li class="nav-item nav-search d-none d-lg-block">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="search">
+                  <i class="icon-search"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control" placeholder="Search.." aria-label="search" aria-describedby="search">
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+            
+                    <li class="nav-item dropdown d-flex mr-4 ">
+            <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
+              <i class="icon-head"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Settings</p>
+              <a class="dropdown-item preview-item">               
+                  <i class="icon-head"></i> Profile
+              </a>
+              <a href="/logout" class="dropdown-item preview-item">
+                  <i class="icon-inbox"></i> Logout
+              </a>
+            </div>
+          </li>
+          
+        
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="icon-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html-->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div class="user-profile">
+         
+          <div class="user-name">
+              User Name
+          </div>
+          <div class="user-designation">
+              Patient
+          </div>
+        </div>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/patient/dashboard">
+              <i class="icon-box menu-icon"></i>
+              <span class="menu-title">Profile</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/patient/book_appo">
+               <i class="icon-thermometer menu-icon"></i>
+              <span class="menu-title">Book Appointment</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/patient/appointment">
+              <i class="icon-pie-graph menu-icon"></i>
+              <span class="menu-title">Appointments</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/patient/lock_screen">
+              <i class="icon-lock menu-icon"></i>
+              <span class="menu-title">Lockscreen</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm-10 mb-4 mb-xl-0">
+              <h4 class="font-weight-bold text-dark">Personal Details</h4>
+            </div>
+            <div class="col-sm-2 mb-4 mb-xl-0">
+              <a href="/patient/updatedetails/"><button class="btn btn-warning">Update Details</button></a>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-xl-12 flex-column d-flex grid-margin stretch-card">
+              <div class="row flex-grow">
+                 <div class="col-xl-2 flex-column d-flex grid-margin stretch-card">
+              <div class="row flex-grow">
+                <div class="col-sm-12 grid-margin">
+                    <div class="card">
+                      <div class="card-body">
+                          <h4 class="card-title" style="text-align: center; " >
+                          <img src="../images/faces/patient/patient.png"></h4>
+                         
+                      </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 grid-margin ">
+                    <div class="card">
+                      <div class="card-body">
+                          <h4 class="card-title">Total Appointment</h4>
+                          <h4 class="text-dark font-weight-bold mb-2"> <%= appo_all %> </h4>
+                          
+                      </div>
+                    </div>
+               </div>
+
+
+              </div>
+
+            </div>
+                
+                <div class="col-xl-5 grid-margin grid-margin ">
+              <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Personal Details</h4>
+
+                    <div class="table-responsive mt-3">
+                      <table class="table table-header-bg">
+                        <thead>
+                          <tr><th> Patient Name</th><td><%= userenroll.name %></td></tr>
+                          <tr><th>  Age</th><td><%= userenroll.age %></td></tr>
+                          <tr><th>  Gender</th><td><%= userenroll.gender %></td></tr>
+                          <tr><th>Father/ Spouse`s Name </th><td><%= userenroll.father %></td></tr>
+                          <tr><th>  Address </th><td><%= userenroll.address %></td></tr>
+                          <tr><th>  City</th><td><%= userenroll.city %></td></tr>
+                          <tr><th>  State</th><td><%= userenroll.state %></td></tr>
+                          <tr><th>  Nationality</th><td><%= userenroll.nationality %></td></tr>
+                        </thead>
+                      </table>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-5 grid-margin grid-margin ">
+              <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Complete Details</h4>
+
+                    <div class="table-responsive mt-3">
+                      <table class="table table-header-bg">
+                        <thead>
+                          <tr><th> Marital Status</th><td><%= userenroll.mstatus %></td></tr>
+                          <tr><th> Education</th><td><%= userenroll.education %></td></tr>
+                          <tr><th> Occupation</th><td><%= userenroll.occupation %></td></tr>
+                          <tr><th> Height</th><td><%= userenroll.height %></td></tr>
+                          <tr><th> Weight</th><td><%= userenroll.weight %></td></tr>
+                          <tr><th> Adhar No. </th><td><%= userenroll.adharno %></td></tr>
+                          <tr><th> Email</th><td><%= userenroll.email %></td></tr>
+                          <tr><th> Contact Number</th><td><%= userenroll.contact %></td></tr>
+                        </thead>
+                        
+                      </table>
+                    </div>
+                </div>
+              </div>
+            </div>
+                
+              </div>
+
+            </div>
+          </div>
+            
+              
+              
+          <div class="row">
+          
+            
+                                
+            <div class="col-xl-6 grid-margin grid-margin ">
+              <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Recent Desease Details</h4>
+
+                    <div class="table-responsive mt-3">
+                      <table class="table table-header-bg">
+                        <thead>
+                        <tr>
+                            <th>
+                                Desease Name
+                            </th>
+                            <td>
+                              <% if (appointments.length>0) {  %>
+                                <%= appointments[appo_all-1].desease_name %>
+                              <% } else { %>
+                                <li> No Record Found </li>
+                                <% } %>
+
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <th>
+                                Deaseas Stage
+                            </th>
+                            <td>
+                              <% if (appointments.length>0) {  %>
+                                <%= appointments[appo_all-1].desease_stage %>
+                              <% } else { %>
+                                <li> No Record Found </li>
+                                <% } %>
+                              
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                                Description
+                            </th>
+                            <td>
+                              <% if (appointments.length>0) {  %>
+                                <%= appointments[appo_all-1].description %>
+                              <% } else { %>
+                                <li> No Record Found </li>
+                                <% } %>
+                             
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                               Precautions Given
+                            </th>
+                            <td>
+                              <% if (appointments.length>0) {  %>
+                                <%= appointments[appo_all-1].medicine_given %>
+                              <% } else { %>
+                                <li> No Record Found </li>
+                                <% } %>
+                              
+                            </td>
+                          </tr>
+                          
+                          
+                        </thead>
+                        
+                      </table>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6 grid-margin grid-margin ">
+              <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title"> Recent Appointment Details</h4>
+
+                    <div class="table-responsive mt-3">
+                      <table class="table table-header-bg">
+                        <thead>
+                        <tr>
+                            <th>
+                                Appointment Date
+                            </th>
+                            <td>
+                              <% if (appointments.length>0) {  %>
+                                <%= appointments[appo_all-1].date %>
+                              <% } else { %>
+                                <li> No Record Found </li>
+                                <% } %>           
+
+                                
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <th>
+                              Appointment Time
+                            </th>
+                            <td>
+                              <% if (appointments.length>0) {  %>
+                                <%= appointments[appo_all-1].time %>
+                              <% } else { %>
+                                <li> No Record Found </li>
+                                <% } %>
+                             
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                                Download Report
+                            </th>
+                            <td>
+                              <% if (appointments.length>0) {  %>
+                                <a href="https://ipfs.io/ipfs/<%= appointments[appo_all-1].report_hash %>" target="_blank">Download</a>
+                              <% } else { %>
+                                <li> No Record Found </li>
+                                <% } %>
+                                
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>
+                                Precations Recipt
+                            </th>
+                            <td>
+                              <% if (appointments.length>0) {  %>
+                                <a href="https://ipfs.io/ipfs/<%= appointments[appo_all-1].recipt_hash %>" target="_blank">Download</a>
+                              <% } else { %>
+                                <li> No Record Found </li>
+                                <% } %>
+                              
+                            </td>
+                          </tr>
+                          
+                          
+                        </thead>
+                        
+                      </table>
+                    </div>
+                </div>
+              </div>
+            </div>
+          
+
+            <div class="col-xl-12 grid-margin grid-margin  stretch-card ">
+              <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Appointments List</h4>
+
+                    <div class="table-responsive mt-3">
+                      <table class="table table-header-bg">
+                        <thead>
+                          <tr>
+                            <th >
+                                Sr.no
+                            </th>
+                            <th>
+                               Appointment Date & Time
+                            </th>
+                            <th>
+                              Specilist
+                            </th>
+                            <th>
+                              Desease
+                          </th>
+                            <th>
+                                Description
+                            </th>
+                            <th>
+                                Precautions Given appointments
+                            </th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% if (appointments.length>0) {  %>
+                            <% appointments.forEach( function(item, i){ %>
+                              <tr>
+                                <td> <%= i+1 %> </td>
+                                <td> <%= item.date %> <%= item.time %>  </td>
+                                <td> <%= item.specilist %> </td>
+                                <td> <%= item.problem %> </td>
+                                <td> <%= item.description %> </td>
+                                <td> <%= item.medicine_given %> </td>
+                              </tr> 
+                          <% })} else { %>
+                            <li> There no items </li>
+                            <% } %>                        
+                        </tbody>
+                      </table>
+                    </div>
+                </div>
+              </div>
+            </div>
+            
+
+            
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+        
+            
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- base:js -->
+  <script src="../vendors/base/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="../js/off-canvas.js"></script>
+  <script src="../js/hoverable-collapse.js"></script>
+  <script src="../js/template.js"></script>
+  <!-- endinject -->
+  <!-- plugin js for this page -->
+  <script src="../vendors/chart.js/Chart.min.js"></script>
+  <script src="../vendors/jquery-bar-rating/jquery.barrating.min.js"></script>
+  <!-- End plugin js for this page -->
+  <!-- Custom js for this page-->
+  <script src="../js/dashboard.js"></script>
+  <!-- End custom js for this page-->
+</body>
+
+</html>
+

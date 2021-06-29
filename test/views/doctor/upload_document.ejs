@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>file</title>
+	<style>
+		.container {
+
+			overflow: hidden;
+		}
+
+		.vertical-center {
+
+			background: rgb(89, 164, 207);
+			color: white;
+			border-radius: 1em;
+			padding: 3em;
+			position: absolute;
+			top: 40%;
+			left: 50%;
+			margin-right: -50%;
+			transform: translate(-50%, -50%)
+		}
+
+		.btn-container {
+			text-align: center;
+		}
+
+		button {
+			padding: 5px 30px 5px 30px;
+
+			margin-top: 20px;
+
+			margin-bottom: 20px;
+
+			width: 100%;
+
+			background: #fff;
+
+			border: none;
+
+			font-size: 20px;
+
+			text-transform: uppercase;
+
+			font-weight: bold;
+
+			letter-spacing: 5px;
+
+			font-family: poppins;
+			border-radius: 10px;
+		}
+
+		input {
+			padding: 10px 5px;
+
+			border: 1px solid #fff;
+
+			border-radius: 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<section>
+		<div class="container">
+			<div class="vertical-center">
+				<form enctype="multipart/form-data" method="POST" action="/doctor/hash/<%= id %>?_method=patch">
+					<input type="hidden" name="_method" value="patch">
+					<div>
+						<div class="btn-container">
+							<label for="example">Upload Report</label>
+						</div>
+						
+						<input type="file" name="avatar">
+						<div class="btn-container">
+							<button>Submit</button>
+						</div>
+					</div>
+				</form>
+				<!-- <form action="/doctor/upload_document" method="post" enctype="multipart/form-data">
+					<div>
+						<div class="btn-container">
+							<label for="example">Upload Recipt</label>
+						</div>
+						<input type="file" name="avatar">
+						<div class="btn-container">
+							<button>Submit</button>
+						</div>
+					</div>
+				</form> -->
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>
